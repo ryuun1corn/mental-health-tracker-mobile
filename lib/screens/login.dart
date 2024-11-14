@@ -2,7 +2,7 @@ import 'package:mental_health_tracker/screens/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-// TODO: Import halaman RegisterPage jika sudah dibuat
+import "package:mental_health_tracker/screens/register.dart";
 
 void main() {
   runApp(const LoginApp());
@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                       // Untuk menyambungkan Android emulator dengan Django pada localhost,
                       // gunakan URL http://10.0.2.2/
                       final response = await request
-                          .login("http://[APP_URL_KAMU]/auth/login/", {
+                          .login("http://127.0.0.1:8000/auth/login/", {
                         'username': username,
                         'password': password,
                       });
@@ -147,7 +147,7 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
-                      minimumSize: Size(double.infinity, 50),
+                      minimumSize: const Size(double.infinity, 50),
                       backgroundColor: Theme.of(context).colorScheme.primary,
                       padding: const EdgeInsets.symmetric(vertical: 16.0),
                     ),
